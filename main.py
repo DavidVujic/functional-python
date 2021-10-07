@@ -1,145 +1,12 @@
 from urllib.request import urlopen
 import re
 import toolz
-
-
-common_words = {
-    "a",
-    "able",
-    "about",
-    "across",
-    "after",
-    "all",
-    "almost",
-    "also",
-    "am",
-    "among",
-    "an",
-    "and",
-    "any",
-    "are",
-    "as",
-    "at",
-    "be",
-    "because",
-    "been",
-    "but",
-    "by",
-    "can",
-    "cannot",
-    "could",
-    "dear",
-    "did",
-    "do",
-    "does" "either",
-    "else",
-    "ever",
-    "every",
-    "for",
-    "from",
-    "get",
-    "got",
-    "had",
-    "has",
-    "have",
-    "he",
-    "her",
-    "hers",
-    "him",
-    "his",
-    "how",
-    "however",
-    "i",
-    "if",
-    "in",
-    "into",
-    "is",
-    "it",
-    "its",
-    "just",
-    "least",
-    "let",
-    "like",
-    "likely",
-    "may",
-    "me",
-    "might",
-    "most",
-    "must",
-    "my",
-    "neither",
-    "no",
-    "nor",
-    "now",
-    "of",
-    "off",
-    "often",
-    "on",
-    "one",
-    "only",
-    "or",
-    "other",
-    "our",
-    "own",
-    "rather",
-    "said",
-    "say",
-    "says",
-    "she",
-    "should",
-    "since",
-    "so",
-    "some",
-    "than",
-    "that",
-    "the",
-    "their",
-    "them",
-    "then",
-    "there",
-    "these",
-    "they",
-    "this",
-    "those",
-    "tis",
-    "to",
-    "too",
-    "twas",
-    "up",
-    "upon",
-    "us",
-    "wants",
-    "was",
-    "we",
-    "were",
-    "what",
-    "when",
-    "where",
-    "which",
-    "while",
-    "who",
-    "whom",
-    "why",
-    "will",
-    "with",
-    "would",
-    "yet",
-    "you",
-    "your",
-    "very",
-}
-
-
-def slurp(path):
-    return urlopen(path).read().decode("utf-8")
-
-
-def to_lower(strings):
-    return map(lambda s: s.lower(), strings)
+import common
+import helpers
 
 
 def is_common_word(word):
-    return word in common_words
+    return word in common.words
 
 
 def remove_common(strings):
@@ -156,8 +23,8 @@ def sort_by_value(d: dict):
 def most_frequent_words(words: list):
     return toolz.thread_last(
         words,
-        # to_lower,
-        lambda strings: map(lambda s: s.lower(), strings),
+        #  helpers.to_lower,
+        lambda words: map(lambda s: s.lower(), words),
         remove_common,
         toolz.frequencies,
         # sort_by_value,
@@ -192,14 +59,14 @@ def longest_palindrome(words: list):
 
 def main():
     path = "http://www.gutenberg.org/files/2701/2701-0.txt"
-    book = slurp(path)
+    book = helpers.slurp(path)
 
     # Extract words: caracters or quotes
     words = re.compile("[\\w|']+").findall(book)
     toolz.count(words)
 
     # Figure out the title of the book
-    toolz.take(20, words)
+    list(toolz.take(20, words))
 
     most_frequent_words(words)
     longest_words(words)
