@@ -9,25 +9,15 @@ def is_common_word(word):
     return word in common.words
 
 
-def remove_common(strings):
-    return toolz.remove(is_common_word, strings)
-
-
-def sort_by_value(d: dict):
-    return sorted(d.items(), key=lambda item: item[1])
-
-
 # threading -> combining parts just like LEGO
 
 
 def most_frequent_words(words: list):
     return toolz.thread_last(
         words,
-        #  helpers.to_lower,
         lambda words: map(lambda s: s.lower(), words),
-        remove_common,
+        lambda words: toolz.remove(is_common_word, words),
         toolz.frequencies,
-        # sort_by_value,
         lambda d: sorted(d.items(), key=lambda item: item[1]),
         lambda seq: toolz.tail(20, seq),
     )
