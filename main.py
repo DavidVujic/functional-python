@@ -1,4 +1,3 @@
-from urllib.request import urlopen
 import re
 import toolz
 import common
@@ -15,6 +14,9 @@ def is_common_word(word):
 def most_frequent_words(words: list):
     return toolz.thread_last(
         words,
+        # lambda words: map(helpers.lower, words),
+        # (map, helpers.lower),
+        # (toolz.remove, is_common_word),
         lambda words: map(lambda s: s.lower(), words),
         lambda words: toolz.remove(is_common_word, words),
         toolz.frequencies,
