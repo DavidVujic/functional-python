@@ -1,4 +1,4 @@
-from functional_python.rails.result import Fail
+from functional_python.railway.result import Fail
 
 
 def try_catch(fn, *args, **kwargs):
@@ -11,4 +11,4 @@ def try_catch(fn, *args, **kwargs):
 def true_false(fn, *args, **kwargs):
     res = fn(*args, **kwargs)
 
-    return Fail() if res is False else res
+    return Fail(exception=None) if res is False else res

@@ -1,6 +1,6 @@
 from functools import partial
-from functional_python.rails.funcs import true_false, try_catch
-from functional_python.rails.result import failed
+from functional_python.railway.funcs import true_false, try_catch
+from functional_python.railway.result import failed
 
 
 def wrapper(rail_fn, fn, *args, **kwargs):
