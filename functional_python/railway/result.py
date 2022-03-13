@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 @dataclass
 class Fail:
-    exception: Exception | None
+    exception: Exception | None = None
 
 
 def failed(res) -> bool:
