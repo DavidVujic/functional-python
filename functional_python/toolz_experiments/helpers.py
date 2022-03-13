@@ -2,4 +2,5 @@ from urllib.request import urlopen
 
 
 def slurp(url: str) -> str:
-    return urlopen(url).read().decode("utf-8")
+    with urlopen(url) as response:
+        return response.read().decode("utf-8")
