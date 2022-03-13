@@ -1,0 +1,2 @@
+def comment():
+    pass
