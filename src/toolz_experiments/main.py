@@ -1,7 +1,7 @@
 import re
 import toolz
-import common
-import helpers
+from toolz_experiments import common
+from toolz_experiments import helpers
 
 
 def is_common_word(word):
