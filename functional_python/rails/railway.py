@@ -1,19 +1,32 @@
-from typing import Callable
-
-from functional_python.rails.funcs import get_func
+from functools import partial
+from functional_python.rails.funcs import true_false, try_catch
 from functional_python.rails.result import failed
-from functional_python.rails.track import Track
 
 
-def tracks(fn: Callable, track=Track.try_catch):
-    "Wraps a plain function into a two-tracked function."
+def wrapper(rail_fn, fn, *args, **kwargs):
+    if len(args) and failed(args[0]):
+        return args[0]
 
-    def wrapper(fn, *args, **kwargs):
-        if len(args) and failed(args[0]):
-            return args[0]
+    return rail_fn(fn, *args, **kwargs)
 
-        rail_fn = get_func(track)
 
-        return rail_fn(fn, *args, **kwargs)
+def tracks(fn):
+    """Railway Oriented Programming decorator
 
-    return wrapper
+    Wraps a function into a two-tracked function.
+
+    Taking the Fail track when there is an exception.
+    """
+
+    return partial(wrapper, try_catch, fn)
+
+
+def tracks_boolean(fn):
+    """Railway Oriented Programming decorator
+
+    Wraps a function into a two-tracked function.
+
+    Taking the Fail track when the result from a function is False.
+    """
+
+    return partial(wrapper, true_false, fn)
