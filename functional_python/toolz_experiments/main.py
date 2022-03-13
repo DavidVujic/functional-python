@@ -1,7 +1,7 @@
 import re
+
 import toolz
-from toolz_experiments import common
-from toolz_experiments import helpers
+from functional_python.toolz_experiments import common, helpers
 
 
 def is_common_word(word):
@@ -14,9 +14,9 @@ def is_common_word(word):
 def most_frequent_words(words: list):
     return toolz.thread_last(
         words,
-        lambda words: map(lambda s: s.lower(), words),
+        lambda words: map(str.lower, words),
         lambda words: toolz.remove(is_common_word, words),
-        # alternate syntax with less verbosity (toolz.remove, is_common_word),
+        # alternate syntax with less verbosity: (toolz.remove, is_common_word),
         toolz.frequencies,
         lambda d: sorted(d.items(), key=lambda item: item[1]),
         lambda seq: toolz.tail(20, seq),

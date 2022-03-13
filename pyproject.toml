@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "functional-python"
+version = "0.1.0"
+description = ""
+authors = ["David Vujic <@davidvujic>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "functional_python"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+toolz = "^0.11.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.1.0"
+flake8 = "^4.0.1"
+flake8-bugbear = "^22.1.11"
+mypy = "^0.940"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
