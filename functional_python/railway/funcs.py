@@ -5,7 +5,7 @@ def try_catch(fn, *args, **kwargs):
     try:
         return fn(*args, **kwargs)
     except Exception as e:
-        return Fail(exception=e)
+        return Fail(exception=e, args=args, kwargs=kwargs)
 
 
 def true_false(fn, *args, **kwargs):
