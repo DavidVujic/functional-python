@@ -14,7 +14,6 @@ def tracks(fn):
     """Railway Oriented Programming decorator
 
     Wraps a function into a two-tracked function.
-
     Taking the Fail track when there is an exception.
     """
 
@@ -25,7 +24,6 @@ def tracks_boolean(fn):
     """Railway Oriented Programming decorator
 
     Wraps a function into a two-tracked function.
-
     Taking the Fail track when the result from a function is False.
     """
 
