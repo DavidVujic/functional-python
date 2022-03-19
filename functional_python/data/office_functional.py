@@ -1,5 +1,6 @@
 """
-A functional and "data oriented" approach to the Office and desks implementation.
+A functional and "data oriented"
+approach to the Office and desks implementation.
 
 No imports needed.
 One simple function.
