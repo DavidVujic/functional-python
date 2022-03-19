@@ -2,8 +2,9 @@ words = ["hello", "pythonic", "world"]
 
 
 def find_word(word: str, words: list) -> str | None:
+    res = None
     for w in words:
         if w == word:
-            return w
+            res = w
 
-    return None
+    return res
