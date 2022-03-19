@@ -1,20 +1,19 @@
 # Functional Python
-Experimenting with writing functional Python using the toolz library.
+Experimenting with functional programming in Python.
 
-## What I wish to learn
- Exploring functional concepts in Python using the [toolz](https://toolz.readthedocs.io/en/latest/index.html) library.
- I am using examples from the excellent talk [Clojure in a nutshell](https://www.youtube.com/watch?v=C-kF25fWTO8) by James Trunk.
- I’m exploring, by translating the Clojure code used in his talk into Python.
+How functional is Python?
 
-## What I’ve actually learned
-I’ve learned that it isn’t that difficult to apply functional concepts when writing Python code.
-What I’m thinking of is the ability to compose functions in a very minimalistic way.
-With this, it is probably also easier to keep functions stateless and simplistic.
+Is functional programming even applicable with the idea of writing `Pythonic` code,
+or the `Zen of Python`? These things have been on my mind lately,
+since I have switched from `Clojure` to writing full time Python code.
 
-Also, I really like the possibility to write composed functions into oneliners,
-by using the very much Clojure inspired thread_first and thread_last functions of the _toolz_ library.
+In this repo, I share some ideas on how to find a possible way to be both __Pythonic__, and __Functional__.
 
-__Is this approach Pythonic?__ It depends, I guess. Overusing the features of the toolz library
-will probably break quite a few of the Python Zen* rules.
+The functional code examples are well suitable for super fast feedback loops during development,
+by using a thing called `REPL Driven Development`.
 
-_(run “import this” in a Python shell if you haven’t read the zen parts of Python yet)._
+I have tried keeping it Pythonic while adding functional patterns like `Railway Oriented Programming`,
+and a really cool Python specific library called `toolz`.
+
+## Python Web Conf 2022
+I am using the source code here in my __Functional Python__ talk at [Python Web Conf 2022](https://2022.pythonwebconf.com/presentations/functional-python).
