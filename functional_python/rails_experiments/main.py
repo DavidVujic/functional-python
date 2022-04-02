@@ -17,4 +17,5 @@ def is_valid_csv(path: str) -> bool:
     return is_valid
 
 
-is_valid_csv("./functional_python/rails_experiments/data.csv")
+path = "./functional_python/rails_experiments/data.csv"
+is_valid_csv(path)

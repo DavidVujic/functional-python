@@ -21,11 +21,14 @@ def has_valid_headers(headers):
     return False not in set(true_or_false)
 
 
-def comment():
-    path = "./functional_python/rails_experiments/data.csv"
+def is_valid_csv(path) -> bool:
     data = parse(path)
     headers = get_headers(data)
 
     res = has_valid_headers(headers)
 
-    railway.succeeded(res)
+    return railway.succeeded(res)
+
+
+path = "./functional_python/rails_experiments/data.csv"
+is_valid_csv(path)
