@@ -1,3 +1,15 @@
+"""
+An object oriented
+approach to the Office and desks implementation.
+
+Using dataclasses.
+Office and Desk as classes, both keeping state.
+
+You get auto-complete when using
+the classes and the enum.
+
+"""
+
 from dataclasses import dataclass
 from enum import Enum
 

@@ -2,13 +2,11 @@
 A functional and "data oriented"
 approach to the Office and desks implementation.
 
-No imports needed.
-One simple function.
-Not using any state.
+Benefits:
+No imports needed. One stateless function.
 
 Tradeoffs:
 less auto-complete
-data as strings (the FREE and BUSY values)
 
 """
 
