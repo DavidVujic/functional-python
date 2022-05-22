@@ -28,3 +28,7 @@ The Polylith architecture in Python: [A fresh take on Monorepos in Python](https
 
 ## Python Web Conf 2022
 I am using the source code here in my __Functional Python__ talk at [Python Web Conf 2022](https://2022.pythonwebconf.com/presentations/functional-python).
+
+
+## Func Prog Sweden
+I am using the source code here in my __Functional Programming in Python?__ talk at the [Fifth Func Prog Sweden Meetup 2022](https://www.meetup.com/Func-Prog-Sweden/events/285375007).
