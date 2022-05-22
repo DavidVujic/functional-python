@@ -7,33 +7,31 @@ An example is filtering a list:
 
 """
 
-words = ["hello", "pythonic", "world"]
+words = [
+    {"id": 1, "name": "hello"},
+    {"id": 2, "name": "pythonic"},
+    {"id": 3, "name": "world"},
+]
 
 
 # good?
-def find_word_with_a_for_loop(word: str, words: list) -> str:
+def find_word_with_a_for_loop(word: str, words: list) -> dict | None:
     for w in words:
-        if w == word:
+        if w["name"] == word:
             return w
 
-    return f"no {word} for you"
+    return None
 
 
 # yes good, but ...
-def find_word_with_filter(word: str, words: list) -> str:
-    res = filter(lambda w: w == word, words)
+def find_word_with_filter(word: str, words: list) -> dict | None:
+    res = filter(lambda w: w["name"] == word, words)
 
-    return next(res, f"no {word} for you")
+    return next(res, None)
 
 
 # Probably Pythonic!
-def find_word_with_comprehension(word: str, words: list) -> str:
-    res = (w for w in words if w == word)
+def find_word_with_comprehension(word: str, words: list) -> dict | None:
+    res = (w for w in words if w["name"] == word)
 
-    return next(res, f"no {word} for you")
-
-
-def comment():
-    find_word_with_a_for_loop("pythonic", words)
-    find_word_with_filter("pythonic", words)
-    find_word_with_comprehension("pythonic", words)
+    return next(res, None)
