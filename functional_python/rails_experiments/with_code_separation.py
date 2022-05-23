@@ -2,23 +2,32 @@ import csv
 
 
 def parse(path):
-    with open(path, mode="r") as f:
-        return list(csv.DictReader(f))
+    try:
+        with open(path, mode="r") as f:
+            return list(csv.DictReader(f))
+    except Exception:
+        return None
 
 
 def get_headers(data):
-    return data[0].keys()
+    try:
+        return data[0].keys()
+    except Exception:
+        return None
 
 
 def has_valid_headers(headers):
-    is_valid = True
+    try:
+        is_valid = True
 
-    for header in headers:
-        if not header:
-            is_valid = False
-            break
+        for header in headers:
+            if not header:
+                is_valid = False
+                break
 
-    return is_valid
+            return is_valid
+    except Exception:
+        return False
 
 
 def is_valid_csv(path) -> bool:
